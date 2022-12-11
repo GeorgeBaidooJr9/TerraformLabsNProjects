@@ -90,7 +90,7 @@ module "asg" {
       key_name                 = "lukey"
       propagate_at_launch = true
     },
-  ]
+ }
 }
 
 #Creating a load balancer for public subnets
