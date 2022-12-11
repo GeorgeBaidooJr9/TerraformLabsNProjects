@@ -45,6 +45,7 @@ resource "aws_db_instance" "default"{
 
 #Creating an Auto-scaling group of EC2 instances  
 module "asg" {
+  source  = "terraform-aws-modules/autoscaling/aws"
   
   name = "wk22-instances"
 
