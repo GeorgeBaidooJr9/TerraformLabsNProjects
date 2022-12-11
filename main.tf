@@ -1,13 +1,13 @@
 #Creating a VPC with custom Public/Private subnets, Auto-scaling group of EC2 instances, as well as an RDS MySQL Database
 
-module "vpc" "vpc_id"{
+module "vpc" {
 
   name = "wk22-terraform-vpc"
   cidr = "10.0.0.0/16"
 
  #Establishing different AZS and associating them with public/private subnets 
   azs             = ["us-east-1a", "us-east-1b"] 
-  private_subnets = ["10.0.3.0/24", "10.0.4.0/24" "10.0.5.0/24", "10.0.6.0/24"] #Private subnets for Web Server & RDS Tier
+  private_subnets = ["10.0.3.0/24", "10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"] #Private subnets for Web Server & RDS Tier
   public_subnets  = ["10.0.1.0/24", "10.0.2.0/24"] 
 
   enable_nat_gateway = true
