@@ -116,7 +116,7 @@ module "elb_http" {
       lb_port           = 8080
       lb_protocol       = "http"
     },
-    }
+   ] 
 
   health_check = {
     target              = "HTTP:80/"
