@@ -1,6 +1,7 @@
 #Creating a VPC with custom Public/Private subnets, Auto-scaling group of EC2 instances, as well as an RDS MySQL Database
 
 module "vpc" {
+  source = "terraform-aws-modules/vpc/aws"
 
   name = "wk22-terraform-vpc"
   cidr = "10.0.0.0/16"
