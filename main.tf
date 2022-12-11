@@ -45,8 +45,7 @@ resource "aws_db_instance" "default"{
 
 #Creating an Auto-scaling group of EC2 instances  
 module "asg" {
-source = /week22/Modules/vpc/main.tf
-
+  
   name = "wk22-instances"
 
   # Launch configuration
