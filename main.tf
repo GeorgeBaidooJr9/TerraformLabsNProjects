@@ -137,6 +137,7 @@ module "elb_http" {
     Name = "Wk22_bastion"
   }
 }
+}
  
   
  
