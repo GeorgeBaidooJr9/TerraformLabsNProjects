@@ -25,9 +25,6 @@ module "vpc" "vpc_id"{
   private_subnet_tags = {
     Name = "private-WBTier-subnets"
   }
-  private_subnet_tags = {
-    Name = "private-RDSTier-subnets"
-  }
 
   vpc_tags = {
     Name = "wk22-terraform-vpc"
