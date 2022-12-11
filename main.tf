@@ -142,7 +142,5 @@ module "elb_http" {
   }
 }
  
-  }
-}
 
  
