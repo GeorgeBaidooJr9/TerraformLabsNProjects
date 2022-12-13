@@ -1,13 +1,8 @@
 #Creating a VPC with custom Public/Private subnets as well as an RDS MySQL Database
 
 provider "aws" {
-  region = local.region
+  region = "us-east-1"
 }
-
-locals {
-  name   = "ex-${replace(basename(path.cwd), "_", "-")}"
-  region = "us-east-1" 
-  }
 
 
 ################################################################################
