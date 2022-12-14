@@ -79,7 +79,7 @@ module "ec2_instance" "default" {
 }
 
 #Creating a load balancer for public subnets
-module "elb_http" "load_balancer" {
+module "elb_http" "default" {
   source  = "terraform-aws-modules/elb/aws"
   version = "~> 2.0"
 
