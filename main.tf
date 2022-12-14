@@ -63,16 +63,14 @@ module "ec2_instance" "default" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
 
-  for_each = toset(["one", "two"])
-
-  name = "terra-instance-${each.key}"
+  name = "wk22-terra-instance"
 
   ami                    = "ami-0b0dcb5067f052a63"
   instance_type          = "t2.micro"
   key_name               = "lukey"
   monitoring             = true
   vpc_security_group_ids = ["sg-06811e76fd8d88ef0"]
-  subnet_id              = "subnet-0a21dbfc65340945e"
+  subnet_id              = "subnet-0aafb0228e3f63d74"
 
   tags = {
     Terraform   = "true"
@@ -87,7 +85,7 @@ module "elb_http" "load_balancer" {
 
   name = "elb-4-terraform"
 
-  subnets         = ["subnet-0a21dbfc65340945e", "subnet-011c2265d2e318073"]
+  subnets         = ["subnet-0659b504f58f1c60c", "subnet-07091e14c6c5f7da8"]
   security_groups = ["sg-06811e76fd8d88ef0"]
   internal        = false
 
