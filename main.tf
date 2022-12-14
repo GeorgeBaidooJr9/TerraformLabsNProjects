@@ -9,7 +9,7 @@ provider "aws" {
 # VPC Module
 ################################################################################
 
-module "vpc" {
+module "vpc" "vpc_id" {
   source = "terraform-aws-modules/vpc/aws"
 
   name = "22terraform-vpc"
@@ -59,7 +59,7 @@ resource "aws_db_instance" "default"{
     }
 
 #Creating EC2 instances on a public subnet 
-module "ec2_instance" {
+module "ec2_instance" "default" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
 
@@ -81,7 +81,7 @@ module "ec2_instance" {
 }
 
 #Creating a load balancer for public subnets
-module "elb_http" {
+module "elb_http" "load_balancer" {
   source  = "terraform-aws-modules/elb/aws"
   version = "~> 2.0"
 
