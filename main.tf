@@ -1,4 +1,4 @@
-#Creating a VPC with custom Public/Private subnets as well as an RDS MySQL Database
+#Creating a VPC with custom Public/Private subnets, EC2 instances as well as an RDS MySQL Database
 
 provider "aws" {
   region = "us-east-1"
@@ -12,13 +12,14 @@ provider "aws" {
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "terraform-tough-vpc"
+  name = "22terraform-vpc"
   cidr = "10.0.0.0/16"
 
  #Establishing different AZS and associating them with public/private subnets 
   azs             = ["us-east-1a", "us-east-1b"] 
-  private_subnets = ["10.0.3.0/24", "10.0.4.0/24"]
+  private_subnets = ["10.0.3.0/24", "10.0.4.0/24"] #private subnets for Web Tier
   public_subnets  = ["10.0.1.0/24", "10.0.2.0/24"]
+  database_subnets = ["10.0.5.0/24", "10.0.6.0/24"] #private subnets for DB Tier
 
   enable_nat_gateway = true
   enable_vpn_gateway = true
@@ -29,14 +30,17 @@ module "vpc" {
   }
 
   public_subnet_tags = {
-    Name = "amazing-public-subnets"
+    Name = "public-subnets"
   }
   private_subnet_tags = {
-    Name = "private-amazing-subnets"
+    Name = "private-webtier-subnets"
+  }
+  database_subnet_tags = {
+    Name = "private-dbtier-subnets"
   }
 
   vpc_tags = {
-    Name = "terraform-tough-vpc"
+    Name = "22terraform-vpc"
   }
 }
 
@@ -110,14 +114,7 @@ module "elb_http" {
     timeout             = 5
   }
   
-  // ELB attachments to our instances
-  number_of_instances = 2
-  instances           = ["i-02f60ea653914a44b", "i-030f73330bd7d753a"]
-
-  tags = {
-    Owner       = "user"
-    Environment = "dev"
-  }
+  
 }
 
  
