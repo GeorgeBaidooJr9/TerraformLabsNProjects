@@ -70,7 +70,7 @@ module "ec2_instance" "default" {
   key_name               = "lukey"
   monitoring             = true
   vpc_security_group_ids = ["sg-06811e76fd8d88ef0"]
-  subnet_id              = "subnet-0aafb0228e3f63d74"
+ 
 
   tags = {
     Terraform   = "true"
@@ -112,7 +112,7 @@ module "elb_http" "load_balancer" {
     timeout             = 5
   }
   
-  
+}
 }
 
  
