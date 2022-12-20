@@ -13,6 +13,6 @@ resource "docker_image" "docker-centos-image" {
   keep_locally = false
 }
 
-resource "aws_ecr_repository" "wk23-ecr-repo-2" {
+resource "aws_ecr_repository" "wk23-ecr-repo" {
   name = "wk23-ecr-repo"
 }
